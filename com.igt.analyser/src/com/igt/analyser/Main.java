@@ -8,9 +8,7 @@ import javax.imageio.plugins.bmp.BMPImageWriteParam;
 public class Main {
 
 	public static void main(String[] args) {
-
 		try {
-
 			if (args.length < 3) {
 				throw new IllegalArgumentException();
 			}
@@ -20,16 +18,26 @@ public class Main {
 			
 			WSDLParser wsdlService = new WSDLParserImpl();
 			BPMNParser bpmnService = new BPMNParserImpl();
+			Analyser analyser = new AnalyserImpl();
 
 			String[] serviceNames = wsdlService.getServiceNames(wsdlFile.getAbsolutePath());
 			String[] activityNames = bpmnService.getActivities(bpmnFile.getAbsolutePath());
 			
+			BPMNActivity[] activities = analyser.getRecommendedServices(activityNames, serviceNames);
 			
-
+			for (BPMNActivity activity : activities) {
+				System.out.println(activity.name);
+				
+				for (WSDLServiceRecommendation recommendation : activity.recommendations) {
+					System.out.println("\t" + recommendation.serviceName);
+					System.out.println("\t\tPrecision: " + recommendation.precision);
+					System.out.println("\t\tRecall: " + recommendation.recall);
+				}
+			}
 		} catch (IllegalArgumentException ex) {
-			System.err.println("Usage: <bpmn-file> <wsdl-file>");
-		} catch (FileNotFoundException ex) {
-			System.err.println(ex.getMessage());
-		}
+			System.err.println("Usage: <bpmn-file> <wsdl-file>"); }
+//		} catch (FileNotFoundException ex) {
+//			System.err.println(ex.getMessage());
+//		}
 	}
 }

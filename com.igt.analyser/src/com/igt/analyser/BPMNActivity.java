@@ -1,5 +1,8 @@
 package com.igt.analyser;
 
-public class BPMNActivity {
+import java.util.List;
 
+public class BPMNActivity {
+	public String name;
+	public List<WSDLServiceRecommendation> recommendations;
 }
