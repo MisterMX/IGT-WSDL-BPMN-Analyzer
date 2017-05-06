@@ -12,12 +12,12 @@ public class Main {
 
 	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
 		try {
-			if (args.length < 3) {
+			if (args.length < 2) {
 				throw new IllegalArgumentException();
 			}
 
-			File bpmnFile = new File(args[1]);
-			File wsdlFile = new File(args[2]);
+			File bpmnFile = new File(args[0]);
+			File wsdlFile = new File(args[1]);
 			
 			WSDLParser wsdlService = new WSDLParserImpl();
 			BPMNParser bpmnService = new BPMNParserImpl();
