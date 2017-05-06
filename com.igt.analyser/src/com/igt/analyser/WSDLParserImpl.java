@@ -4,8 +4,7 @@ public class WSDLParserImpl implements WSDLParser {
 
 	@Override
 	public String[] getServiceNames(String filepath) {
-		// TODO Auto-generated method stub
-		return null;
+		return new String[] {"GetWheather", "GetCustomers", "GetDistinctUserNames", "CreateAdminUser"};
 	}
 
 }
