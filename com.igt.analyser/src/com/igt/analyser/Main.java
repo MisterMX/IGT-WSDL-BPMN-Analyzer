@@ -2,12 +2,15 @@ package com.igt.analyser;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
-import javax.imageio.plugins.bmp.BMPImageWriteParam;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.xml.sax.SAXException;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
 		try {
 //			if (args.length < 3) {
 //				throw new IllegalArgumentException();
@@ -33,9 +36,9 @@ public class Main {
 				}
 			}
 		} catch (IllegalArgumentException ex) {
-			System.err.println("Usage: <bpmn-file> <wsdl-file>"); }
-//		} catch (FileNotFoundException ex) {
-//			System.err.println(ex.getMessage());
-//		}
+			System.err.println("Usage: <bpmn-file> <wsdl-file>");
+		} catch (FileNotFoundException ex) {
+			System.err.println(ex.getMessage());
+		}
 	}
 }
