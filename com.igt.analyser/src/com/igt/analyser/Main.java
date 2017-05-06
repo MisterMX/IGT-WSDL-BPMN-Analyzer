@@ -12,19 +12,19 @@ public class Main {
 
 	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
 		try {
-//			if (args.length < 3) {
-//				throw new IllegalArgumentException();
-//			}
-//
-//			File bpmnFile = new File(args[1]);
-//			File wsdlFile = new File(args[2]);
+			if (args.length < 3) {
+				throw new IllegalArgumentException();
+			}
+
+			File bpmnFile = new File(args[1]);
+			File wsdlFile = new File(args[2]);
 			
 			WSDLParser wsdlService = new WSDLParserImpl();
 			BPMNParser bpmnService = new BPMNParserImpl();
 			Analyser analyser = new AnalyserImpl();
 
-			String[] serviceNames = wsdlService.getServiceNames(null);
-			String[] activityNames = bpmnService.getActivities(null);
+			String[] serviceNames = wsdlService.getServiceNames(wsdlFile.getAbsolutePath());
+			String[] activityNames = bpmnService.getActivities(bpmnFile.getAbsolutePath());
 			
 			BPMNActivity[] activities = analyser.getRecommendedServices(activityNames, serviceNames);
 			
