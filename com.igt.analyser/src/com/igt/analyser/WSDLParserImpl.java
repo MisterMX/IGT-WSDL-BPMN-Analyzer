@@ -32,7 +32,7 @@ public class WSDLParserImpl implements WSDLParser {
 		for (int temp = 0; temp < nList.getLength(); temp++) {
 			Node nNode = nList.item(temp);
 
-			if (nNode.getNodeType() == Node.ELEMENT_NODE && nNode.getNodeName().contains("service")) {
+			if (nNode.getNodeType() == Node.ELEMENT_NODE && nNode.getNodeName().contains("port")) {
 				String name = nNode.getAttributes().getNamedItem("name").getTextContent();
 
 				serviceNames.add(name);
