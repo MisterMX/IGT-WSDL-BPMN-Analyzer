@@ -42,10 +42,14 @@ public class Main {
 				
 				System.out.println(String.format(" %d service(s) found.", activity.recommendations.size()));
 				for (WSDLServiceRecommendation recommendation : activity.recommendations) {
-					System.out.println(String.format("\t%1$s (%2$.2f %%)", recommendation.serviceName, recommendation.similarity * 100));
-					
+					String serviceText = String.format("%1$s (%2$.2f %%)", recommendation.serviceName, recommendation.similarity * 100);
+
+					// Is relevant?
 					if (relevantServices != null && relevantServices.contains(recommendation.serviceName)) {
 						relevantServiceCount++;
+						System.out.println("\t+ " + serviceText);
+					} else {
+						System.out.println("\t- " + serviceText);
 					}
 				}
 				
@@ -56,7 +60,9 @@ public class Main {
 						? (double)relevantServiceCount / relevantServices.size() * 100
 						: 0;
 				
-				double fScore = 2 * precision * recall / (precision + recall);
+				double fScore = precision + recall != 0f
+						? 2 * precision * recall / (precision + recall)
+						: 0;
 				
 				System.out.println(String.format(" - Recall: %1$.2f %%", recall));
 				System.out.println(String.format(" - Precision: %1$.2f %%", precision));

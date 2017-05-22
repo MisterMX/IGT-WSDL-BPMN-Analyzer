@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Defines the connection between services and activities that allows the progamm to calculate precision, recall and f-measure. -->
+<!-- Defines the connection between services and activities that allows the 
+	program to calculate precision, recall and f-measure. -->
 <activities>
-	<activity name="Get wheather">
+	<activity name="Get weather">
 		<service name="GlobalWeatherSoap" />
 		<service name="GlobalWeatherSoap12" />
 		<service name="GlobalWeatherHttpGet" />
 		<service name="GlobalWeatherHttpPost" />
+	</activity>
+	<activity name="Get admin user">
+		<service name="GetAdminUser" />
+	</activity>
+	<activity name="Notify admin user">
+		<service name="NotifyAdminUser" />
 	</activity>
 </activities>

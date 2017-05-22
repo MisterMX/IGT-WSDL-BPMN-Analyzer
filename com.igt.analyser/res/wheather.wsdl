@@ -205,5 +205,23 @@
     <wsdl:port name="GlobalWeatherHttpPost" binding="tns:GlobalWeatherHttpPost">
       <http:address location="http://www.webservicex.com/globalweather.asmx" />
     </wsdl:port>
+    <wsdl:port name="GlobalWeatherHttpIrrelevant" binding="tns:GlobalWeatherHttpIrrelevant">
+      <http:address location="http://www.webservicex.com/globalweather.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GlobalWeatherSoapIrrelevant" binding="tns:GlobalWeatherSoapIrrelevant">
+      <http:address location="http://www.webservicex.com/globalweather.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GetAdminUser" binding="tns:GetAdminUser">
+      <http:address location="http://www.webservicex.com/globalweather.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GetAdminUserIrrelevant" binding="tns:GetAdminUserIrrelevant">
+      <http:address location="http://www.webservicex.com/globalweather.asmx" />
+    </wsdl:port>
+    <wsdl:port name="NotifyAdminUser" binding="tns:NotifyAdminUser">
+      <http:address location="http://www.webservicex.com/globalweather.asmx" />
+    </wsdl:port>
+    <wsdl:port name="NotifyAdminUserIrrelevant" binding="tns:NotifyAdminUserIrrelevant">
+      <http:address location="http://www.webservicex.com/globalweather.asmx" />
+    </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
